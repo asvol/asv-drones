@@ -7,26 +7,26 @@ using Asv.Drones.Gui.Api;
 
 namespace Asv.Drones.Gui;
 
-
-
-public partial class AppArgs:IAppArgs
+public partial class AppArgs : IAppArgs
 {
     private static IAppArgs? _instance;
     private readonly HashSet<string> _tags;
     private readonly SortedDictionary<string, string> _args;
+    private const string  ProtocolPrefix = "asv://";
+
 
     public static IAppArgs Instance => _instance ??= new AppArgs();
 
     private AppArgs()
     {
-        _args = new SortedDictionary<string,string>(StringComparer.InvariantCultureIgnoreCase);
+        _args = new SortedDictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
         _tags = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase);
     }
 
     public IReadOnlyDictionary<string, string> Args => _args;
 
     public IReadOnlySet<string> Tags => _tags;
-    
+
     public bool TryParseFile(string argsFile)
     {
         try
@@ -47,6 +47,11 @@ public partial class AppArgs:IAppArgs
 
     public bool TryParse(IEnumerable<string> args)
     {
+        foreach (var arg in args)
+        {
+            if (arg.StartsWith("asv://")) return TryParseLink(arg);
+        }
+
         var keyValuePattern = ArgsParserRegex();
         try
         {
@@ -70,6 +75,49 @@ public partial class AppArgs:IAppArgs
         catch (Exception e)
         {
             Console.WriteLine($"Error to parse application args:" + e.Message);
+            return false;
+        }
+    }
+
+    public bool TryParseLink(string link)
+    {
+        if (!link.StartsWith(ProtocolPrefix))
+            return false;
+
+        var path = link.Substring(ProtocolPrefix.Length);
+
+        var segments = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
+
+        try
+        {
+            for (int i = 0; i < segments.Length; i++)
+            {
+                var segment = segments[i];
+                if (segment.StartsWith("-"))
+                {
+                    var paramParts = segment.Substring(1).Split('_', 2);
+                    if (paramParts.Length == 2)
+                    {
+                        var key = paramParts[0];
+                        var value = paramParts[1];
+                        _args[key] = value;
+                    }
+                    else
+                    {
+                        _tags.Add(segment);
+                    }
+                }
+                else
+                {
+                    _args[$"arg{i}"] = segment;
+                }
+            }
+
+            return true;
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine($"Error parsing link: {e.Message}");
             return false;
         }
     }

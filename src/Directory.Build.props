@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ProductVersion>1.0.2</ProductVersion>
-        <ApiVersion>2.0.0-dev.6</ApiVersion>
+        <ApiVersion>2.0.0-dev.8</ApiVersion>
         <AsvCommonVersion>3.0.0-dev.4</AsvCommonVersion>
         <ZLoggerVersion>2.5.5</ZLoggerVersion>
         <AvaloniaVersion>11.1.0</AvaloniaVersion>

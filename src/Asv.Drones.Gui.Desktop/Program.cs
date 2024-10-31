@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
 using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.ReactiveUI;
 
 namespace Asv.Drones.Gui.Desktop;
 
 sealed class Program
 {
-
     // Initialization code. Don't use any Avalonia, third-party APIs or any
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
@@ -42,7 +39,7 @@ sealed class Program
             // Windows
             .With(new Win32PlatformOptions { OverlayPopups = true })
             // Unix/Linux
-            .With(new X11PlatformOptions { OverlayPopups = true, UseDBusFilePicker = false})
+            .With(new X11PlatformOptions { OverlayPopups = true, UseDBusFilePicker = false })
             // Mac
             .With(new AvaloniaNativePlatformOptions { OverlayPopups = true })
             .WithInterFont()
