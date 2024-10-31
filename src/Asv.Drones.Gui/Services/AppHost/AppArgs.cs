@@ -47,16 +47,12 @@ public partial class AppArgs : IAppArgs
 
     public bool TryParse(IEnumerable<string> args)
     {
-        foreach (var arg in args)
-        {
-            if (arg.StartsWith("asv://")) return TryParseLink(arg);
-        }
-
         var keyValuePattern = ArgsParserRegex();
         try
         {
             foreach (var arg in args)
             {
+                if (arg.StartsWith(ProtocolPrefix)) TryParseLink(arg);
                 var match = keyValuePattern.Match(arg);
                 if (match.Success)
                 {
@@ -81,43 +77,19 @@ public partial class AppArgs : IAppArgs
 
     public bool TryParseLink(string link)
     {
-        if (!link.StartsWith(ProtocolPrefix))
-            return false;
-
         var path = link.Substring(ProtocolPrefix.Length);
-
         var segments = path.Split('/', StringSplitOptions.RemoveEmptyEntries);
-
         try
         {
             for (int i = 0; i < segments.Length; i++)
             {
-                var segment = segments[i];
-                if (segment.StartsWith("-"))
-                {
-                    var paramParts = segment.Substring(1).Split('_', 2);
-                    if (paramParts.Length == 2)
-                    {
-                        var key = paramParts[0];
-                        var value = paramParts[1];
-                        _args[key] = value;
-                    }
-                    else
-                    {
-                        _tags.Add(segment);
-                    }
-                }
-                else
-                {
-                    _args[$"arg{i}"] = segment;
-                }
+                _args[$"arg{i}"] = segments[i];
             }
-
             return true;
         }
         catch (Exception e)
         {
-            Console.WriteLine($"Error parsing link: {e.Message}");
+            Console.WriteLine($"Error parsing link:" + e.Message);
             return false;
         }
     }
