@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Asv.Drones.Gui.Api" Version="$(ApiVersion)"/>
+        <!--<PackageReference Include="Asv.Drones.Gui.Api" Version="$(ApiVersion)"/>-->
         <PackageReference Include="ZLogger" Version="$(ZLoggerVersion)" />
 
         <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
@@ -93,14 +93,16 @@
         <AdditionalFiles Include="Shell\Status\StatusText\TextMessageStatusView.axaml"/>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Shell\Pages\Vehicle\QuickParams\Px4\" />
-    </ItemGroup>
+    
 
     <ItemGroup>
       <None Update="app.args">
         <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\..\asv-drones-gui-api\src\Asv.Drones.Gui.Api\Asv.Drones.Gui.Api.csproj" />
     </ItemGroup>
 
 </Project>

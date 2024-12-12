@@ -18,6 +18,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Drones.Gui", "Asv.Drones.Gui\Asv.Drones.Gui.csproj", "{9AB306F5-83F1-4970-8749-737E8D21B856}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Drones.Gui.Api", "..\..\asv-drones-gui-api\src\Asv.Drones.Gui.Api\Asv.Drones.Gui.Api.csproj", "{17F6DC5B-DB0C-4D62-B105-D1A867E6387E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Mavlink", "..\..\asv-mavlink\src\Asv.Mavlink\Asv.Mavlink.csproj", "{35CDADD8-D6C1-4AFC-A5B7-D0094231F8EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Cfg", "..\..\asv-common\src\Asv.Cfg\Asv.Cfg.csproj", "{D45BF6B1-7517-452F-AAC5-038DE0225F61}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.Common", "..\..\asv-common\src\Asv.Common\Asv.Common.csproj", "{29FB0C86-7FB0-4852-8A3A-CDFB18B01E43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asv.IO", "..\..\asv-common\src\Asv.IO\Asv.IO.csproj", "{C9012BFC-5C3F-4E03-974A-F0E2FD9DC35D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +50,26 @@ Global
 		{9AB306F5-83F1-4970-8749-737E8D21B856}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9AB306F5-83F1-4970-8749-737E8D21B856}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9AB306F5-83F1-4970-8749-737E8D21B856}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F6DC5B-DB0C-4D62-B105-D1A867E6387E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F6DC5B-DB0C-4D62-B105-D1A867E6387E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F6DC5B-DB0C-4D62-B105-D1A867E6387E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F6DC5B-DB0C-4D62-B105-D1A867E6387E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35CDADD8-D6C1-4AFC-A5B7-D0094231F8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35CDADD8-D6C1-4AFC-A5B7-D0094231F8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35CDADD8-D6C1-4AFC-A5B7-D0094231F8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35CDADD8-D6C1-4AFC-A5B7-D0094231F8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D45BF6B1-7517-452F-AAC5-038DE0225F61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45BF6B1-7517-452F-AAC5-038DE0225F61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45BF6B1-7517-452F-AAC5-038DE0225F61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45BF6B1-7517-452F-AAC5-038DE0225F61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29FB0C86-7FB0-4852-8A3A-CDFB18B01E43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29FB0C86-7FB0-4852-8A3A-CDFB18B01E43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29FB0C86-7FB0-4852-8A3A-CDFB18B01E43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29FB0C86-7FB0-4852-8A3A-CDFB18B01E43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9012BFC-5C3F-4E03-974A-F0E2FD9DC35D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9012BFC-5C3F-4E03-974A-F0E2FD9DC35D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9012BFC-5C3F-4E03-974A-F0E2FD9DC35D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9012BFC-5C3F-4E03-974A-F0E2FD9DC35D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
